@@ -1,0 +1,32 @@
+name: uodate
+
+on: 
+  workflow_dispatch:
+  push:
+   branches: main
+  schedule:
+    - cron: '5 13 * * *'
+  watch:
+    types: [started]
+   
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id  # 自己点的 start
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Commit #上传新的refresh_token到仓库
+      run: |
+        cd ./latest
+        git clone https://github.com/Baiyuetribe/kamiFaka.git
+        cd kamiFaka/dist
+        git config --global user.email actionbot@email.com
+        git config --global user.name actionbot
+        git add .
+        git commit -m "update" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        force: true
