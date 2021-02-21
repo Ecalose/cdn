@@ -18,11 +18,10 @@ jobs:
       uses: actions/checkout@master
     - name: Commit #上传新的refresh_token到仓库
       run: |
-        cd ./latest
         git config --global user.email actionbot@email.com
         git config --global user.name actionbot
         git clone https://github.com/Baiyuetribe/kamiFaka.git
-        cd ./latest/kamiFaka/dist
+        cd kamiFaka/dist
         git add .
         git commit -m "update" -a
     - name: Push changes
