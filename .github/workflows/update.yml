@@ -21,7 +21,6 @@ jobs:
         cd latest
         git config --global user.email actionbot@email.com
         git config --global user.name actionbot
-        git init
         git remote add origin https://github.com/Baiyuetribe/kamiFaka.git
         git config core.sparsecheckout true
         echo "dist" >> .git/info/sparse-checkout
