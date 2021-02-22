@@ -25,7 +25,6 @@ jobs:
         rm -rf kamiFaka
         git add .
         git commit -m "update" -a
-        git push -u origin main
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
