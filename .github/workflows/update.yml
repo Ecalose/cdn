@@ -20,6 +20,8 @@ jobs:
       run: |
         git config --global user.email actionbot@email.com
         git config --global user.name actionbot
+        rm -rf latest
+        mkdir latest
         git clone https://github.com/Baiyuetribe/kamiFaka.git
         cp -rf kamiFaka/dist/*  latest
         rm -rf kamiFaka
