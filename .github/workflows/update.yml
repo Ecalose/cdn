@@ -23,7 +23,7 @@ jobs:
         git clone https://github.com/Baiyuetribe/kamiFaka.git
         cd kamiFaka
         rm -rf .git/
-        cd kamiFaka/dist
+        cd dist
         git init
         git remote add origin https://github.com/Ecalose/cdn.git
         git add .
