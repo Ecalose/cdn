@@ -26,8 +26,8 @@ jobs:
         cd dist
         git init
         git remote add origin https://github.com/Ecalose/cdn.git
-        git add .
         git pull --rebase origin main
+        git add .
         git commit -m "update" -a
         git push -u origin main
     - name: Push changes
