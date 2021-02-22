@@ -27,7 +27,8 @@ jobs:
         automatic_release_tag: "latest"
         #automatic_release_tag: ${{ github.run_id }}
         prerelease: false
-        title: ${{ github.run_id }}
+        #title: ${{ github.run_id }}
+        title: "latest"
 
     # Force cache
     - name: Force cache
