@@ -21,13 +21,8 @@ jobs:
         git config --global user.email actionbot@email.com
         git config --global user.name actionbot
         git clone https://github.com/Baiyuetribe/kamiFaka.git
-        ls
-        cd kamiFaka
-        rm -rf .git/
-        cd dist
-        git init
-        git remote add origin https://github.com/Ecalose/cdn.git
-        git pull --rebase origin main
+        cp -rf kamiFaka/dist/*  latest
+        rm -rf kamiFaka
         git add .
         git commit -m "update" -a
         git push -u origin main
