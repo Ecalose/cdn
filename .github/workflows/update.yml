@@ -24,3 +24,8 @@ jobs:
         cp -rf kamiFaka/dist/*  latest
         rm -rf kamiFaka
         chmod +x ./update-repo.sh&&./update-repo.sh
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.CDN }}
+        force: true
