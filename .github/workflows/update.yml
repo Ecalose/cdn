@@ -16,14 +16,24 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: Commit #上传新的refresh_token到仓库
+    - name: copy 
       run: |
         git config --global user.email actionbot@email.com
         git config --global user.name actionbot
         git clone https://github.com/Baiyuetribe/kamiFaka.git
         cp -rf kamiFaka/dist/*  latest
+        cp -rf kamiFaka/dist/admin.html  admin.html
+        cp -rf kamiFaka/dist/index.html  index.html
         rm -rf kamiFaka
-        chmod +x ./update-repo.sh&&./update-repo.sh
+    - name: Find and Replace
+      uses: jacobtomlinson/gha-find-replace@master
+      with:
+        find: "/static"
+        replace: "https://cdn.jsdelivr.net/gh/Ecalose/cdn@main/latest/static"
+        include: ".html"
+    - name: commit
+      run: |
+        chmod +x ./update-repo.sh&&./update-repo.sh 
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
