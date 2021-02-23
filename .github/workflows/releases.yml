@@ -5,6 +5,7 @@ name: Auto release and force cache
 # Controls when the action will run. Triggers the workflow only on push
 # events but only for the master branch
 on:
+  workflow_dispatch:
   push:
     branches: main
 
