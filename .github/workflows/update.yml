@@ -30,7 +30,7 @@ jobs:
       with:
         find: "/static"
         replace: "https://cdn.jsdelivr.net/gh/Ecalose/cdn@main/latest/static"
-        include: "latest/.html"
+        include: ".html"
     - name: commit
       run: |
         chmod +x ./update-repo.sh&&./update-repo.sh 
